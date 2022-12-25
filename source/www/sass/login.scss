@@ -1,0 +1,59 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#splash {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #123456;
+}
+
+#form {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 240px;
+    height: 84px;
+    margin: -140px -120px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid black;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+#username-div, #password-div, #message-div, #submit-div {
+    position: relative;
+}
+
+#message-div, #submit-div {
+    background: green;
+}
+
+#username-label, #password-label, #message-label, #submit-label {
+    float: left;
+    clear: both;
+    width: 110px;
+    height: 25px;
+}
+
+#submit-input {
+    margin-top: 14px;
+}
+
+#username-input, #password-input, #submit-input {
+    float: right;
+    height: 25px;
+}
+
+#message-label {
+    color: red;
+}
+
+input[name=username], input[name=password] {
+    width: 100px;
+}
