@@ -1,0 +1,407 @@
+@charset "UTF-8";
+.column {
+  padding: 0.5rem;
+  height: calc(100vh - 1.0rem);
+  display: block; }
+  .column:first-child {
+    float: left; }
+
+#verktøy {
+  border: 0.01rem solid #cccccc;
+  background-color: #eeffee;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 17.0rem; }
+  #verktøy #fil {
+    width: 15.0rem; }
+  #verktøy #visinfo {
+    width: 1.0rem;
+    height: 1.0rem;
+    position: relative;
+    top: 0.22rem;
+    margin-left: 0.5rem; }
+  #verktøy #publiser {
+    width: 5.0rem;
+    margin-left: 6.7rem; }
+  #verktøy #lagre {
+    width: 5.0rem; }
+  #verktøy #status {
+    font-family: monospace;
+    white-space: pre; }
+    #verktøy #status div {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.70rem; }
+    #verktøy #status #fagtimeinfo {
+      border-top: 0.01rem solid #aaaaaa;
+      padding: 0.2rem 0;
+      height: 0.0rem; }
+    #verktøy #status #elevinfo {
+      border-top: 0.01rem solid #aaaaaa;
+      padding: 0.2rem 0;
+      height: 4.6rem; }
+      #verktøy #status #elevinfo .navn {
+        font-family: serif;
+        font-weight: bold;
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem; }
+    #verktøy #status #lærerinfo {
+      border-top: 0.01rem solid #aaaaaa;
+      padding: 0.2rem 0;
+      height: 2.8rem; }
+      #verktøy #status #lærerinfo .navn {
+        font-family: serif;
+        font-weight: bold;
+        font-size: 0.75rem;
+        margin-bottom: 0.1rem; }
+
+#pool {
+  border: 0.01rem solid #cccccc;
+  background-color: #eeeeff;
+  padding: 0.5rem;
+  width: 17.0rem; }
+  #pool .filter > div > span {
+    font-size: 0.85rem;
+    width: 3.5rem;
+    display: inline-block; }
+    #pool .filter > div > span.lang {
+      width: 7.8rem;
+      padding-left: 2.8rem; }
+  #pool .filter > div > select {
+    width: 13.4rem; }
+  #pool .filter > div > input[type=text] {
+    width: 13.1rem; }
+  #pool .fagtimecontainer {
+    margin-top: 0.4rem;
+    overflow-y: scroll; }
+  #pool .filtered {
+    display: none; }
+
+#timeplan, #info {
+  display: block;
+  border: 0.01rem solid #cccccc;
+  overflow: scroll; }
+  #timeplan table, #info table {
+    table-layout: fixed;
+    overflow: scroll;
+    display: block; }
+    #timeplan table .dagtime, #timeplan table .info_dagtime, #info table .dagtime, #info table .info_dagtime {
+      background-color: #ffffff;
+      border-right: 0.01rem solid #cccccc;
+      border-bottom: 0.01rem solid #cccccc;
+      vertical-align: top;
+      overflow-x: scroll; }
+      #timeplan table .dagtime:last-child, #timeplan table .info_dagtime:last-child, #info table .dagtime:last-child, #info table .info_dagtime:last-child {
+        border-right: none; }
+      #timeplan table .dagtime .header, #timeplan table .info_dagtime .header, #info table .dagtime .header, #info table .info_dagtime .header {
+        text-align: center;
+        color: #888;
+        padding: 0.5rem; }
+        #timeplan table .dagtime .header:first-letter, #timeplan table .info_dagtime .header:first-letter, #info table .dagtime .header:first-letter, #info table .info_dagtime .header:first-letter {
+          text-transform: capitalize; }
+      #timeplan table .dagtime .fagtimer, #timeplan table .info_dagtime .fagtimer, #info table .dagtime .fagtimer, #info table .info_dagtime .fagtimer {
+        min-height: 3rem; }
+      #timeplan table .dagtime.tilgjengelig, #timeplan table .info_dagtime.tilgjengelig, #info table .dagtime.tilgjengelig, #info table .info_dagtime.tilgjengelig {
+        background-color: #f7ffdd; }
+      #timeplan table .dagtime.tilgjengelig.tilgjengelig_lærer, #timeplan table .info_dagtime.tilgjengelig.tilgjengelig_lærer, #info table .dagtime.tilgjengelig.tilgjengelig_lærer, #info table .info_dagtime.tilgjengelig.tilgjengelig_lærer {
+        background-color: #ccffcc; }
+      #timeplan table .dagtime.tilgjengelig.opptatt_lærer, #timeplan table .info_dagtime.tilgjengelig.opptatt_lærer, #info table .dagtime.tilgjengelig.opptatt_lærer, #info table .info_dagtime.tilgjengelig.opptatt_lærer {
+        background-color: #f7ffdd; }
+      #timeplan table .dagtime.tilgjengelig.opptatt, #timeplan table .info_dagtime.tilgjengelig.opptatt, #info table .dagtime.tilgjengelig.opptatt, #info table .info_dagtime.tilgjengelig.opptatt {
+        background-color: #ddddff; }
+    #timeplan table tr:last-child, #info table tr:last-child {
+      border-bottom: none; }
+  #timeplan .tilgjengeligerom, #timeplan .info_tilgjengeligerom, #info .tilgjengeligerom, #info .info_tilgjengeligerom {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: 0.01rem solid #cccccc;
+    border-bottom: 0.01rem solid #cccccc; }
+    #timeplan .tilgjengeligerom > .rom, #timeplan .info_tilgjengeligerom > .rom, #info .tilgjengeligerom > .rom, #info .info_tilgjengeligerom > .rom {
+      font-size: 0.7rem;
+      padding: 0.2rem;
+      float: left;
+      background-color: #efe;
+      color: #000; }
+      #timeplan .tilgjengeligerom > .rom > .kode, #timeplan .info_tilgjengeligerom > .rom > .kode, #info .tilgjengeligerom > .rom > .kode, #info .info_tilgjengeligerom > .rom > .kode {
+        display: none; }
+      #timeplan .tilgjengeligerom > .rom.overbooket, #timeplan .info_tilgjengeligerom > .rom.overbooket, #info .tilgjengeligerom > .rom.overbooket, #info .info_tilgjengeligerom > .rom.overbooket {
+        color: #ff3333; }
+      #timeplan .tilgjengeligerom > .rom:not(.utilgjengelig):not(.opptatt).droptarget, #timeplan .info_tilgjengeligerom > .rom:not(.utilgjengelig):not(.opptatt).droptarget, #info .tilgjengeligerom > .rom:not(.utilgjengelig):not(.opptatt).droptarget, #info .info_tilgjengeligerom > .rom:not(.utilgjengelig):not(.opptatt).droptarget {
+        background-color: #099;
+        color: #fff; }
+      #timeplan .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt, #timeplan .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt, #info .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt, #info .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt {
+        background-color: #eef;
+        color: #000; }
+        #timeplan .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.overbooket, #timeplan .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.overbooket, #info .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.overbooket, #info .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.overbooket {
+          background-color: #eef;
+          color: #f00; }
+        #timeplan .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.droptarget, #timeplan .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.droptarget, #info .tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.droptarget, #info .info_tilgjengeligerom > .rom:not(.utilgjengelig).opptatt.droptarget {
+          background-color: #009;
+          color: #fff; }
+      #timeplan .tilgjengeligerom > .rom.utilgjengelig:not(.opptatt), #timeplan .info_tilgjengeligerom > .rom.utilgjengelig:not(.opptatt), #info .tilgjengeligerom > .rom.utilgjengelig:not(.opptatt), #info .info_tilgjengeligerom > .rom.utilgjengelig:not(.opptatt) {
+        background-color: #fff;
+        color: #bbb; }
+      #timeplan .tilgjengeligerom > .rom.utilgjengelig.opptatt, #timeplan .info_tilgjengeligerom > .rom.utilgjengelig.opptatt, #info .tilgjengeligerom > .rom.utilgjengelig.opptatt, #info .info_tilgjengeligerom > .rom.utilgjengelig.opptatt {
+        background-color: #fff;
+        color: #f00; }
+      #timeplan .tilgjengeligerom > .rom.utilgjengelig.droptarget, #timeplan .info_tilgjengeligerom > .rom.utilgjengelig.droptarget, #info .tilgjengeligerom > .rom.utilgjengelig.droptarget, #info .info_tilgjengeligerom > .rom.utilgjengelig.droptarget {
+        background-color: #000;
+        color: #fff; }
+  #timeplan .fagtime.filtered, #timeplan .info_fagtime.filtered, #info .fagtime.filtered, #info .info_fagtime.filtered {
+    opacity: 0.2; }
+  #timeplan .fagtime.opptatt, #timeplan .info_fagtime.opptatt, #info .fagtime.opptatt, #info .info_fagtime.opptatt {
+    background-color: #aaaaff; }
+  #timeplan .fagtime.utilgjengelig, #timeplan .info_fagtime.utilgjengelig, #info .fagtime.utilgjengelig, #info .info_fagtime.utilgjengelig {
+    background-color: #ffaaaa; }
+  #timeplan .fagtime.hover_lærer, #timeplan .info_fagtime.hover_lærer, #info .fagtime.hover_lærer, #info .info_fagtime.hover_lærer {
+    background-color: #ddeeff; }
+  #timeplan .fagtime.fortsettelse, #timeplan .info_fagtime.fortsettelse, #info .fagtime.fortsettelse, #info .info_fagtime.fortsettelse {
+    color: #888888;
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; }
+  #timeplan .fagtime.overbooket, #timeplan .info_fagtime.overbooket, #info .fagtime.overbooket, #info .info_fagtime.overbooket {
+    color: #ff3333; }
+  #timeplan .fagtime.hover, #timeplan .info_fagtime.hover, #info .fagtime.hover, #info .info_fagtime.hover {
+    background-color: #456789;
+    color: #fff; }
+  #timeplan .fagtime.hover.negative, #timeplan .info_fagtime.hover.negative, #info .fagtime.hover.negative, #info .info_fagtime.hover.negative {
+    background-color: #ffdddd;
+    color: #000; }
+  #timeplan .fagtime.hover_secondary, #timeplan .info_fagtime.hover_secondary, #info .fagtime.hover_secondary, #info .info_fagtime.hover_secondary {
+    background-color: #688db3;
+    color: #fff; }
+  #timeplan .fagtime.hover_secondary.negative, #timeplan .info_fagtime.hover_secondary.negative, #info .fagtime.hover_secondary.negative, #info .info_fagtime.hover_secondary.negative {
+    background-color: #ffdddd;
+    color: #000; }
+  #timeplan .fagtime > .rom.multi, #timeplan .info_fagtime > .rom.multi, #info .fagtime > .rom.multi, #info .info_fagtime > .rom.multi {
+    color: #bb00bb; }
+  #timeplan .fagtime > .rom.overbooket, #timeplan .info_fagtime > .rom.overbooket, #info .fagtime > .rom.overbooket, #info .info_fagtime > .rom.overbooket {
+    color: #ff3333; }
+  #timeplan .fagtime > .rom.utilgjengelig, #timeplan .info_fagtime > .rom.utilgjengelig, #info .fagtime > .rom.utilgjengelig, #info .info_fagtime > .rom.utilgjengelig {
+    color: #ff3333; }
+  #timeplan .fagtime > .lærer.multi, #timeplan .info_fagtime > .lærer.multi, #info .fagtime > .lærer.multi, #info .info_fagtime > .lærer.multi {
+    color: #bb00bb; }
+  #timeplan .fagtime > .lærer.overbooket, #timeplan .info_fagtime > .lærer.overbooket, #info .fagtime > .lærer.overbooket, #info .info_fagtime > .lærer.overbooket {
+    color: #ff3333; }
+  #timeplan .fagtime > .lærer.utilgjengelig, #timeplan .info_fagtime > .lærer.utilgjengelig, #info .fagtime > .lærer.utilgjengelig, #info .info_fagtime > .lærer.utilgjengelig {
+    color: #ff3333; }
+
+#datavelger {
+  position: absolute;
+  background-color: #abcdef;
+  padding: 2rem;
+  border: 0.01rem solid black; }
+  #datavelger > .data {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.6rem;
+    background-color: #efe;
+    color: #000; }
+    #datavelger > .data.valgt {
+      background-color: #cfc !important; }
+      #datavelger > .data.valgt.primær {
+        font-weight: bold; }
+      #datavelger > .data.valgt:before {
+        content: '✓'; }
+    #datavelger > .data:hover {
+      background-color: #ffc !important; }
+    #datavelger > .data .id {
+      display: none; }
+    #datavelger > .data .kode {
+      padding-right: 0.4rem;
+      width: 3.0rem;
+      display: inline-block; }
+    #datavelger > .data .navn {
+      padding-right: 0.4rem;
+      width: 12.0rem;
+      display: inline-block; }
+    #datavelger > .data .info {
+      padding-right: 0.4rem; }
+    #datavelger > .data.opptatt {
+      background-color: #eef;
+      color: #000; }
+    #datavelger > .data.utilgjengelig:not(.opptatt) {
+      background-color: #fff;
+      color: #bbb; }
+    #datavelger > .data.utilgjengelig.opptatt {
+      background-color: #fff;
+      color: #f00; }
+    #datavelger > .data.utilgjengelig.valgt {
+      color: #ff3333; }
+
+.fagtimecontainer {
+  font-size: 0.7rem; }
+
+.fagtime, .info_fagtime {
+  width: 100%;
+  display: table;
+  cursor: pointer; }
+  .fagtime.hover, .info_fagtime.hover {
+    background-color: #456789;
+    color: #fff; }
+  .fagtime.hover.negative, .info_fagtime.hover.negative {
+    background-color: #ffdddd;
+    color: #000; }
+  .fagtime.hover_secondary, .info_fagtime.hover_secondary {
+    background-color: #688db3;
+    color: #fff; }
+  .fagtime.hover_secondary.negative, .info_fagtime.hover_secondary.negative {
+    background-color: #ffdddd;
+    color: #000; }
+  .fagtime > .rom, .info_fagtime > .rom {
+    float: left;
+    display: table-cell;
+    width: 1.6rem; }
+    .fagtime > .rom .kode, .info_fagtime > .rom .kode {
+      display: none; }
+  .fagtime > .lærer, .info_fagtime > .lærer {
+    float: left;
+    display: table-cell;
+    width: 2.3rem; }
+    .fagtime > .lærer .kode, .info_fagtime > .lærer .kode {
+      display: none; }
+  .fagtime > .fag, .info_fagtime > .fag {
+    float: left;
+    display: table-cell;
+    width: 3.9rem; }
+  .fagtime > .antall, .info_fagtime > .antall {
+    float: right;
+    display: table-cell;
+    text-align: right;
+    width: 1.2rem;
+    margin-right: 0.2rem; }
+
+.hover {
+  background-color: #456789;
+  color: #fff; }
+
+.hover.negative {
+  background-color: #ffdddd;
+  color: #000; }
+
+.hover_secondary {
+  background-color: #688db3;
+  color: #fff; }
+
+.hover_secondary.negative {
+  background-color: #ffdddd;
+  color: #000; }
+
+#dimscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.8; }
+
+#filestatus {
+  position: fixed;
+  top: 8rem;
+  left: 15rem;
+  overflow: scroll;
+  width: calc(100% - 34rem);
+  height: calc(100vh - 20rem);
+  background-color: #ffdddd;
+  padding: 2.0rem;
+  font-family: sans-serif;
+  font-weight: 100; }
+  #filestatus div {
+    max-width: 100%; }
+  #filestatus .type {
+    margin-top: 1.0rem;
+    margin-bottom: 0.2rem; }
+  #filestatus .overskrift {
+    font-size: 2.0rem;
+    padding-bottom: 1.0rem;
+    text-align: center; }
+  #filestatus .comment {
+    padding-bottom: 2.0rem;
+    text-align: center; }
+  #filestatus .errorline {
+    padding-bottom: 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+    overflow-x: scroll;
+    white-space: pre; }
+    #filestatus .errorline > .error {
+      font-weight: bold; }
+    #filestatus .errorline > .context {
+      color: #666666; }
+
+#info {
+  background-color: #ffffff;
+  position: absolute;
+  top: 1.3rem;
+  left: 20.0rem;
+  padding: 2.0rem;
+  font-family: sans-serif;
+  font-weight: 100; }
+  #info .overskrift {
+    font-size: 2.0rem; }
+  #info .seksjon {
+    font-weight: normal;
+    margin-top: 2.0rem; }
+  #info table {
+    margin-top: 1.0rem;
+    margin-bottom: 3.0rem;
+    table-layout: fixed; }
+    #info table th {
+      font-size: 0.9rem;
+      font-weight: normal;
+      padding-bottom: 0.1rem;
+      color: #888888; }
+    #info table .info_dagtime:last-child {
+      border-right: 0.01rem solid #cccccc; }
+    #info table .info_dagtime {
+      border: 0.01rem solid #cccccc;
+      width: 15.5rem;
+      height: 8.0rem;
+      font-size: 0.7rem;
+      font-weight: normal; }
+      #info table .info_dagtime.tilgjengelig {
+        background-color: #f7ffdd; }
+      #info table .info_dagtime.tilgjengelig.tilgjengelig_lærer {
+        background-color: #ccffcc; }
+      #info table .info_dagtime.tilgjengelig.opptatt_lærer {
+        background-color: #f7ffdd; }
+      #info table .info_dagtime.tilgjengelig.opptatt {
+        background-color: #ddddff; }
+      #info table .info_dagtime .fagtime.opptatt {
+        background-color: #aaaaff; }
+      #info table .info_dagtime .fagtime.utilgjengelig {
+        background-color: #ffaaaa; }
+      #info table .info_dagtime .fagtime.hover_lærer {
+        background-color: #ddeeff; }
+      #info table .info_dagtime .fagtime.overbooket {
+        color: #ff3333; }
+      #info table .info_dagtime .fagtime.hover {
+        background-color: #456789;
+        color: #fff; }
+      #info table .info_dagtime .fagtime > .rom.multi {
+        color: #bb00bb; }
+      #info table .info_dagtime .fagtime > .rom.overbooket {
+        color: #ff3333; }
+      #info table .info_dagtime .fagtime > .rom.utilgjengelig {
+        color: #ff3333; }
+      #info table .info_dagtime .fagtime > .lærer.multi {
+        color: #bb00bb; }
+      #info table .info_dagtime .fagtime > .lærer.overbooket {
+        color: #ff3333; }
+      #info table .info_dagtime .fagtime > .lærer.utilgjengelig {
+        color: #ff3333; }
+
+#temp, .hidden {
+  display: none; }
+
+.placefagtime {
+  position: absolute;
+  border: 0.1rem solid blue; }
+  .placefagtime.utilgjengelig {
+    background-color: rgba(255, 0, 0, 0.1); }
